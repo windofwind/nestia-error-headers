@@ -9,7 +9,7 @@ export namespace Base {
         authorization?: string;
 
         /**
-         * 인증정보
+         * 인증정보-decode
          *
          * @hidden
          * @memberof Headers
