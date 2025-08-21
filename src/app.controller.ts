@@ -1,7 +1,7 @@
-import { Controller, Get, Headers, Post } from '@nestjs/common';
+import { Controller, Delete, Get, Headers, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 import type { Base } from './schema/base.schema';
-import { TypedParam } from '@nestia/core';
+import { TypedHeaders, TypedParam } from '@nestia/core';
 
 @Controller()
 export class AppController {
@@ -40,9 +40,26 @@ export class AppController {
    * @return {*}  {string}
    * @memberof AppController
    */
-  @Post("/search/:id")
+  @Get("/search/:id")
   getSearch(
     @Headers() headers: Base.headers,
+    @TypedParam("id") id: string
+  ): string {
+    console.info(headers, id);
+    return "hello";
+  }
+
+  /**
+   * @summary 검색 삭제 테스트
+   * @tag app
+   * @param {Base.headers} headers
+   * @param {string} id
+   * @return {*}  {string}
+   * @memberof AppController
+   */
+  @Delete("/search/:id")
+  deleteSearch(
+    @TypedHeaders() headers: Base.headers,
     @TypedParam("id") id: string
   ): string {
     console.info(headers, id);

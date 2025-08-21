@@ -6,10 +6,16 @@ export namespace Base {
          * @hidden
          * @memberof Headers
          */
-        authorization: string;
+        authorization?: string;
+
+        /**
+         * 인증정보
+         *
+         * @hidden
+         * @memberof Headers
+         */
         user?: {
-            name: string;
-            email: string;
+            email:string;
         }
     }
 }
